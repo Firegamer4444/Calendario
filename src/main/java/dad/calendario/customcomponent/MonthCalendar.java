@@ -57,9 +57,9 @@ public class MonthCalendar extends GridPane implements Initializable {
 
         for (int i = 8; i < getChildren().size(); i++){
             Label label = (Label) getChildren().get(i);
-            LocalDate localDate = LocalDate.of(year.get(), month.get(), 1);
 
             label.textProperty().bind(Bindings.createStringBinding(() -> {
+                LocalDate localDate = LocalDate.of(year.get(), month.get(), 1);
                 int firstDayOfMonth = localDate.getDayOfWeek().getValue();
                 if (firstDayOfMonth > getChildren().indexOf(label) - 7 | (getChildren().indexOf(label) - firstDayOfMonth - 6) > localDate.lengthOfMonth()){
                     return "";
